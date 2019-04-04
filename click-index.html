@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clikc-index</title>
+</head>
+<style>
+    .btn{width: 100px;height: 30px;}
+</style>
+<body>
+    <!-- 点击对应的按钮，输出按钮的下标 -->
+    <button class="btn">click-index</button>
+    <button class="btn">click-index</button>
+    <button class="btn">click-index</button>
+    <script>
+        let aBtn = document.getElementsByClassName("btn");
+        // es6 let方式实现
+        // for(let i = 0, len = aBtn.length; i < len; i++){
+        //     aBtn[i].onclick = () => {
+        //         alert("es6--"+i)
+        //     }
+        // }
+        // es5 闭包
+        for(var i = 0, len = aBtn.length; i < len; i++) {
+            (function(i){
+                aBtn[i].onclick = function () {
+                    alert("es5--"+i)
+                }
+            })(i)
+        }
+    </script>
+</body>
+</html>
