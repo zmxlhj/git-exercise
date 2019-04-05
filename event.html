@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">click</button>
+    <a id="a" href="https://www.baidu.com/">百度一下</a>
+
+    <ul id="ul">
+        <li id="li1">this is li1</li>
+        <li id="li2">this is li2</li>
+        <li id="li3">this is li3</li>
+        <li id="li4">this is li4</li>
+    </ul>
+    <script>
+        let oBtn = document.getElementById("btn");
+        let oA = document.getElementById("a");
+        let oUl = document.getElementById("ul");
+        let aLi = document.getElementsByTagName("li")
+        
+        // 事件绑定
+        // oBtn.addEventListener("click", () =>{
+        //     console.log(111111111)
+        // })
+        oBtn.onclick = () => {
+            console.log(2222222)
+        }
+
+        // 取消默认行为
+        oA.addEventListener("click", (e) => {
+            e.preventDefault()   // 取消默认行为
+            console.log("百度一下")
+        })
+
+        //事件冒泡
+
+        // 事件代理
+        oUl.addEventListener("click", (e) =>{
+            var target = e.target
+            console.log(target.innerHTML + "事件代理")
+        })
+        
+
+
+        // 事件绑定函数封装
+        function bindEvent(elem, type, fn) {
+            elem.addEventListener(type, fn)
+        }
+    </script>
+</body>
+</html>
