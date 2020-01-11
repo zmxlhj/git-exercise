@@ -1,0 +1,53 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-01-08 14:17:34
+ * @LastEditTime : 2020-01-10 17:59:12
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \git-exercise\es6\object.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    
+</body>
+<script>
+    // 扩展运算符(...必须使用在最后一个对象上)
+    // 函数传参
+    function fn(a,...b){
+        console.log(a,b)
+    }
+    fn(1,2,61,6,7,78)
+    // 对象使用扩展
+    {
+        let obj = {a:1,b:2};
+        let obj2 = {c:3,d:4,...obj}      // 拼接对象
+        console.log(obj2)
+    }
+    // 数组使用扩展
+    {
+        let arr = [1, 2, 34, 5, 9, 0];
+        let arr2 = [123, 456, ...arr];   // 拼接数组
+        console.log(arr2)
+    }
+
+    {
+        let arr = [1,2,4,6,8,9,0];
+        console.log(...arr)
+    }
+    
+    {
+        function asyncGetData(){
+            let p = new Promise(resolve,reject)
+        }
+
+    }
+</script>
+</html>

@@ -1,0 +1,72 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-01-07 10:30:44
+ * @LastEditTime : 2020-01-08 14:18:11
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \git-exercise\es6\array.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 数组解构赋值
+    {
+        // 正常解构(根据下标寻找对应关系,并且赋值)
+        let [a, b, c] = [4, 5, 6];
+        console.log(a, b, c) // 4, 5, 6
+
+        // 非正常解构(根据下标寻找对应关系,如果没有对应的值,则为undefined)
+        let [i, j, k] = [1,2]
+        console.log(i, j, k) // 1, 2, undefined
+    }
+
+    // map方法(遍历数组，返回改变之后的新数组)
+    {
+        let arr = ["abc","ijk", "asd"];
+        let arrMap = arr.map((item, index) => {
+            return item + "666"
+        });
+        console.log(arrMap) // ["abc666", "ijk666", "asd666"]
+    }
+        
+    // splice
+    {
+        // 1删除数组指定位置的内容,返回删除的内容形成新的数组
+        let arr = ["a","b","d","c","e","f"];
+        let arrDel = arr.splice(1,1)
+        console.log(arrDel)                         // ["b"] 删除的内容
+        console.log(arr)                            // ["a","d","c","e","f"] 改变之后的数组
+
+        // 2插入在指定位置新内容
+        let arr2 = ["z","d","f","s","o"];
+        let arrAdd2 = arr2.splice(1,0,"hello");     // 如果删除的内容为0，就是插入
+        console.log(arrAdd2)                        // [] 返回被替换的内容（数组）
+        console.log(arr2)                           //  ["z", "hello", "d", "f", "s", "o"] 改变之后的数组
+        
+        // 2替换在指定位置的内容
+        let arr3 = ["z","d","f","s","o"];
+        let arrAdd3 = arr3.splice(1,1,"hello");     // 如果删除的内容为1，就是替换
+        console.log(arrAdd3)                        // ["d"] 返回被替换的内容（数组）
+        console.log(arr3)                           // ["z", "hello", "f", "s", "o"] 改变之后的数组
+    }
+
+    // filter
+    {
+        // 返回符合条件的数组元素
+        let arr = [1,2,4,56,7,8,9];
+        let arrF = arr.filter((item,index) =>{
+            return item > 4
+        })
+        console.log(arrF) // [56, 7, 8, 9]
+    }
+</script>
+</html>
