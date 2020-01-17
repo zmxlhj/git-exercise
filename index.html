@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    
+</body>
+<script>
+function fn(){
+    var n = 1
+    return function(){
+        alert(n)
+    }
+}
+var f = fn()
+f()
+
+function Fn1(name,age){
+    this.name = name;
+    this.age = age;
+}
+Fn1.prototype.showName = function(){
+    console.log(this.name)
+}
+Fn1.prototype.showAge = function(){
+    console.log(this.age)
+}
+var f1 = new Fn1("ww","123");
+f1.showAge();
+f1.showName();
+
+
+function Fn2(name,age,num){
+    this.name = name;
+    this.age = age;
+}
+var f2 = new Fn2();
+
+// 使用call方法把Fn1的this指向f2
+Fn1.call(f2,"wangwei");
+console.log(f2.name)
+
+
+// function Fn3(name,age){
+//     this.name = name;
+//     this.age = age;
+// }
+var f3 = {x:1};
+Fn1.bind(f3)()
+console.log(f3)
+
+</script>
+</html>
