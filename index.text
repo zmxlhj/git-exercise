@@ -1,5 +1,6 @@
 
 
+
 ******原型和原型链
 _proto_（隐式原型）  prototype（显示原型）
 原型链：
@@ -9,6 +10,7 @@ _proto_（隐式原型）  prototype（显示原型）
 
 原型链查找机制：
 一种基于_proto_向上查找的机制，如果自己有的方法和属性，就用自身的，如果没有就基于原型链向上查找，一直到Object.prototype为止（Object对象的构造函数还是Object，查找自身没意义）
+
 
 
 ******作用域和闭包
@@ -26,10 +28,15 @@ f() // 1
 作用域：
 
 
+
 ******异步和单线程
 异步：
 
 
+
 ******call，apply，bind（都可以改变this的指向）
-call,apply和bind的第一个参数都是this指向的对象，call和apply如果第一个参数为null或者undefined的时候this会指向window
+MDN：call使用一个指定的 'this' 值和单独给出的一个或者多个参数来调用一个函数。apply方法一样，参数形式为数组，其余和call方法一样
+MDN: bind创建一个新的函数，在bind（）被调用时，bian（）的第一个参数就是this的指向，其余的参数作为新函数的参数，供调用时使用
+
+call,apply和bind的第一个参数都是this指向的对象，call和apply如果第一个参数为null或者undefined的时候this会指向window（在严格模式下，如果没有第一个参数，this的值为undefined）
 call和apply都是立即执行，bind会创建一个新的函数在函数调用的时候才执行

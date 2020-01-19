@@ -36,14 +36,18 @@ f1.showName();
 
 
 function Fn2(name,age,num){
-    this.name = name;
-    this.age = age;
+    Fn1.call(this,name,age);
+    this.num = num;
 }
-var f2 = new Fn2();
+var f2 = new Fn2("wangwei","666","123456");
+console.log(f2.name)
+console.log(f2.age)
+console.log(f2.num)
+
 
 // 使用call方法把Fn1的this指向f2
-Fn1.call(f2,"wangwei");
-console.log(f2.name)
+// Fn1.call(f2,"wangwei");
+// console.log(f2.name)
 
 
 // function Fn3(name,age){
@@ -54,5 +58,22 @@ var f3 = {x:1};
 Fn1.bind(f3)()
 console.log(f3)
 
+var f4 = [1,2,3,4,5]
+console.log(f4)
+
+
+function add(c, d) {
+  return this.a + this.b + c + d;
+}
+
+var o = {a: 1, b: 3};
+
+// 第一个参数是作为‘this’使用的对象
+// 后续参数作为参数传递给函数调用
+add.call(o, 5, 7); // 1 + 3 + 5 + 7 = 16
+console.log(o)
+// 第一个参数也是作为‘this’使用的对象
+// 第二个参数是一个数组，数组里的元素用作函数调用中的参数
+add.apply(o, [10, 20]); // 1 + 3 + 10 + 20 = 34
 </script>
 </html>
