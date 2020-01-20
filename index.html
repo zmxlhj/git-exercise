@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-01-17 12:03:13
+ * @LastEditTime : 2020-01-20 11:05:48
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \git-exercise\index.html
+ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,11 +22,14 @@
 function fn(){
     var n = 1
     return function(){
-        alert(n)
+        // alert(n)
+        console.log(n)
     }
 }
 var f = fn()
 f()
+
+console.log("----------------------------------------------")
 
 function Fn1(name,age){
     this.name = name;
@@ -75,5 +86,32 @@ console.log(o)
 // 第一个参数也是作为‘this’使用的对象
 // 第二个参数是一个数组，数组里的元素用作函数调用中的参数
 add.apply(o, [10, 20]); // 1 + 3 + 10 + 20 = 34
+
+console.log("----------------------------------------------")
+
+const module = {
+  x: 42,
+  getX: function() {
+    return this.x;
+  }
+}
+
+const unboundGetX = module.getX;
+console.log(unboundGetX());
+
+const boundGetX = unboundGetX.bind(module);
+console.log(boundGetX());
+console.log(boundGetX)
+
+console.log(module.x)
+console.log("----------------------------------------------")
+
+
+var str = "hello world";
+console.log([].join.call(str,"-"))
+console.log(str)
+
+var arrw = [1,2,3,5,6,7]
+console.log(arrw.join('--'))
 </script>
 </html>
